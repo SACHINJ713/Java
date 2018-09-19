@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>new customer</title>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<link rel='stylesheet'
+	href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet'
+	href='https://bootswatch.com/lumen/bootstrap.min.css'>
+
+<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+	<div class="outer-container">
+		<div id="wizard" class="aiia-wizard" style="display: none;">
+
+			<div class="aiia-wizard-step">
+				<h1>Application Details</h1>
+				<div class="step-content">
+					<form id="formo" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="acctype">Select
+								Account Type:</label>
+
+							<div class="col-sm-3">
+								<select class="form-control" name="acctype" id="acctype"
+									onselect="countryselect(this,'errState')" required>
+									<option value="">-Select-</option>
+									<option value="S">Saving Account</option>
+									<option value="C">Current Account</option>
+								</select>
+							</div>
+							<div class="col-sm-3 error" id="errState"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="apptype">Application
+								Type:</label>
+							<div class="col-sm-6">
+								<input type="radio" name="apptype" id="apptype" value="S"
+									checked>Single <input type="radio" name="apptype"
+									id="apptype" value="J">Joint
+							</div>
+							<div class="col-sm-3 error"></div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+
+			<div class="aiia-wizard-step">
+				<h1>Customer Details</h1>
+				<div class="step-content">
+					<form id="formo" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="title">Title</label>
+
+							<div class="col-sm-3">
+								<select class="form-control" name="title" id="title"
+									onselect="countryselect(this,'errState')" required>
+									<option value="">-Select-</option>
+									<option value="Mr">Mr</option>
+									<option value="Mrs">Mrs</option>
+									<option value="Ms">Ms</option>
+									<option value="Master">Master</option>
+									<option value="Dr">Dr</option>
+								</select>
+							</div>
+							<div class="col-sm-3 error" id="errState"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="fname">First
+								Name:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="fname"
+									placeholder="First Name" name="fname"
+									onkeyup="Validate(this,'errFirst')" required>
+							</div>
+							<div class="col-sm-3 error" id="errFirst"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="mname">Middle
+								Name(s):</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="mname"
+									placeholder="Middle Name" name="mname"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sname">Surname:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="sname"
+									placeholder="Surname" name="sname"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="oname">State
+								any other name you are known by(e.g. alias name):</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="oname"
+									placeholder="Other name" name="oname"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="dob">Date Of
+								Birth:</label>
+
+							<div class="col-sm-3">
+								<input type="date" class="form-control" id="dob"
+									placeholder="DOB" name="dob" required>
+							</div>
+							<div class="col-sm-3"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="gender">Are
+								you Male or Female:</label>
+							<div class="col-sm-6">
+								<input type="radio" name="gender" id="gender" value="M" checked>Male
+								<input type="radio" name="gender" id="gender" value="F">Female
+							</div>
+							<div class="col-sm-3 error"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="nationality">Country
+								of Nationality:</label>
+
+							<div class="col-sm-3">
+								<select class="form-control" name="nationality" id="nationality"
+									onselect="countryselect(this,'errState')" required>
+									<option value="">-Select-</option>
+									<option value="UK">United Kingdom</option>
+									<option value="US">United States</option>
+									<option value="IND">India</option>
+									<option value="IRAN">Iran</option>
+									<option value="JAPAN">Japan</option>
+								</select>
+							</div>
+							<div class="col-sm-3 error" id="errState"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="liveuk">Are
+								you currently living in the UK?:</label>
+							<div class="col-sm-6">
+								<input type="radio" name="liveuk" id="liveuk" value="Y" checked>Yes
+								<input type="radio" name="liveuk" id="liveuk" value="N">No
+							</div>
+							<div class="col-sm-3 error"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="occupation">Occupation:</label>
+
+							<div class="col-sm-3">
+								<select class="form-control" name="occupation" id="occupation"
+									onselect="countryselect(this,'errState')" required>
+									<option value="">-Select-</option>
+									<option value="AS">Academic Staff</option>
+									<option value="ACC">Accountant</option>
+									<option value="AW">Agricultural worker</option>
+									<option value="ARC">Architect</option>
+									<option value="AFO">Armedforce-Officer</option>
+								</select>
+							</div>
+							<div class="col-sm-3 error" id="errState"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="income">Main
+								Source of Income:</label>
+
+							<div class="col-sm-3">
+								<select class="form-control" name="income" id="income"
+									onselect="countryselect(this,'errState')" required>
+									<option value="">-Select-</option>
+									<option value="BSE">Basic Salary(Employed)</option>
+									<option value="BSS">Basic Salary(Self Employed)</option>
+									<option value="OIE">Other income(Employed)</option>
+									<option value="OIS">Other income(Self Employed)</option>
+									<option value="PE">Pension(Employed)</option>
+									<option value="PS">Pension(Self Employed)</option>
+									<option value="B">Benefits</option>
+									<option value="RI">Rental income</option>
+									<option value="NI">No income</option>
+								</select>
+							</div>
+							<div class="col-sm-3 error" id="errState"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="aiia-wizard-step">
+				<h1>Address Details</h1>
+				<div class="step-content">
+					<form id="formo" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="hname">House
+								Name/number:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="hname"
+									placeholder="House Name/number" name="hname"
+									onkeyup="Validate(this,'errFirst')" required>
+							</div>
+							<div class="col-sm-3 error" id="errFirst"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="flatno">Flat
+								number:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="flatno"
+									placeholder="Flat number" name="flatno"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="street">Street:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="street"
+									placeholder="Street" name="street"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="towncity">Town/City:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="towncity"
+									placeholder="Town/city" name="towncity"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="postcode">Postcode:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="postcode"
+									placeholder="Postcode" name="postcode"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="country">Country(if
+								not UK):</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="country"
+									placeholder="Country" name="country"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="ldate">When
+								did you start living at this address(mm/yyyy):</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="ldate"
+									placeholder="mm/yyyy" name="ldate"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<br>
+						<h3>Temporary Address Details:</h3>
+						<br>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="taddl1">Temporary
+								Address-Line 1:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="taddl1"
+									placeholder="Temporary Address-Line 1" name="taddl1"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="taddl2">Temporary
+								Address-Line 2:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="taddl2"
+									placeholder="Temporary Address-Line 2" name="taddl2"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="taddtc">Temporary
+								Address-Town/city:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="taddtc"
+									placeholder="Temporary Address-Town/city" name="taddtc"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="taddcoc">Temporary
+								Address-Country/Overseas Country:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="taddcoc"
+									placeholder="Temporary Address-Country/Overseas country"
+									name="taddcoc" onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="postcode">Postcode:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="postcode"
+									placeholder="Postcode" name="postcode"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="residentialstatus">Residential
+								Status:</label>
+
+							<div class="col-sm-3">
+								<select class="form-control" name="residentialstatus"
+									id="residentialstatus"
+									onselect="countryselect(this,'errState')" required>
+									<option value="">-Select-</option>
+									<option value="HO">Homeowner</option>
+									<option value="R">Rented</option>
+									<option value="LWP">Living with Parents</option>
+									<option value="O">Other</option>
+								</select>
+							</div>
+							<div class="col-sm-3 error" id="errState"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="aiia-wizard-step">
+				<h1>Contact Details</h1>
+				<p style="padding-left: 100px;">Please ensure at least one phone
+					number is entered.</p>
+				<div class="step-content">
+					<form id="formo" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="mpno">Mobile
+								phone number:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="mpno"
+									placeholder="Mobile phone number" name="mpno"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="hpno">Home
+								Telephone number(including STD code):</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="hpno"
+									placeholder="Home Telephone number(including STD code)"
+									name="hpno" onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="wpno">Work
+								Telephone number(including STD code):</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="wpno"
+									placeholder="Work Telephone number(including STD code)"
+									name="wpno" onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="email">Email
+								address:</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="email"
+									placeholder="Email address" name="email"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="aiia-wizard-step">
+				<h1>Account details</h1>
+				<div class="step-content">
+					<form id="formo" class="form-horizontal">
+						<h3>Customer with Disabilities</h3>
+						<div class="form-group">
+							<div class="col-sm-2 error"></div>
+							<label class="control-label col-sm-3" for="cdisability">Do
+								you have a permanent disability you wish to make known to the
+								bank? </label>
+							<div class="col-sm-6">
+								<input type="radio" name="cdisability" id="cdisability"
+									value="Y" checked>Yes <input type="radio"
+									name="cdisability" id="cdisability" value="N">No
+							</div>
+
+						</div>
+
+						<h3>ATM Card</h3>
+						<div class="form-group">
+							<div class="col-sm-2 error"></div>
+							<label class="control-label col-sm-3" for="atmcard">Do
+								you want to request an optional ATM Card?</label>
+							<div class="col-sm-6">
+								<input type="radio" name="atmcard" id="atmcard" value="Y"
+									checked>Yes <input type="radio" name="atmcard"
+									id="atmcard" value="N">No
+							</div>
+
+						</div>
+
+						<h3>Payong-in Book</h3>
+						<div class="form-group">
+							<div class="col-sm-2 error"></div>
+							<label class="control-label col-sm-3" for="book">Do you
+								want to request an optional paying-in Book?</label>
+							<div class="col-sm-6">
+								<input type="radio" name="book" id="book" value="Y" checked>Yes
+								<input type="radio" name="book" id="book" value="N">No
+							</div>
+
+						</div>
+
+						<h3>Memorable Word</h3>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="mword">Please
+								choose a memorable word</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="mword"
+									placeholder="Please choose a memorable word" name="mword"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="cmword">Please
+								confirm your memorable word</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="cmword"
+									placeholder="Please confirm your memorable word" name="cmword"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="mwphrase">Please
+								provide a phrase to help remind you of your memorable word (e.g.
+								Name of my first School)</label>
+							<div class="col-sm-6">
+
+								<input type="text" class="form-control" id="mwphrase"
+									placeholder="e.g. Name of my first School" name="mwphrase"
+									onkeyup="Validate(this,'errLast')" required>
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="aiia-wizard-step">
+				<h1>Document Upload</h1>
+				<div class="step-content">
+					<form id="formo" class="form-horizontal" method="post"
+						enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="photo">Photo:</label>
+							<div class="col-sm-6">
+								<input type="file" id="photofile" name="photofile">
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sign">Signature:</label>
+							<div class="col-sm-6">
+								<input type="file" id="signfile" name="signfile">
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="id">ID prof:</label>
+							<div class="col-sm-6">
+								<input type="file" id="idfile" name="idfile">
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="address">Address
+								prof:</label>
+							<div class="col-sm-6">
+								<input type="file" id="addfile" name="addfile">
+							</div>
+							<div class="col-sm-3 error" id="errLast"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<script
+		src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+
+
+
+	<script src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

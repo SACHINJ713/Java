@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+function op()
+{
+var s = ["a","s","sss"];
+var sv = ["av","sv","sssv"];
+var o = "<option value=''>select</option> ";
+for(var i = 0;i<s.length;i++)
+{
+ o += "<option value='"+sv[i]+"'>"+s[i]+"</option> ";
+ 
+}
+
+// var kv = {IND:"India", UK:"United Kingdom", US:"United State"}
+// var o = "<option value=''>select</option> ";
+// for(i in kv)
+// {
+//  o += "<option value='"+i+"'>"+kv[i]+"</option> ";
+ 
+// }
+
+document.getElementById('carmodel').innerHTML = o;
+}
+
+
+</script>
+</head>
+<body onload="op()">   
+
+
+<select id="carmodel"></select> 
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+   var e = document.getElementById("carmodel");    
+var strUser = e.options[e.selectedIndex].value; 
+document.getElementById('demo').innerHTML = strUser;
+}
+</script>
+</body>
+</html>
+
+

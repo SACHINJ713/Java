@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/country.js"></script>
+</head>
+<body>
+<select id="country" onfocus="country()">
+<option value="">SELECT</option> 
+</select> 
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+   var e = document.getElementById("country");    
+var strUser = e.options[e.selectedIndex].value; 
+document.getElementById('demo').innerHTML = strUser;
+}
+</script>
+</body>
+</html>
