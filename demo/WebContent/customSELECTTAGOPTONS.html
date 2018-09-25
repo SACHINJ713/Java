@@ -5,12 +5,20 @@
 <script>
 function op()
 {
-var s = ["a","s","sss"];
-var sv = ["av","sv","sssv"];
-var o = "<option value=''>select</option> ";
+var select,option;
+    
+    select = document.getElementById('carmodel');
+var s = ["a","s","sss","44"];
+var sv = ["av","sv","sssv","44v"];
+// var o = "<option value=''>select</option> ";
 for(var i = 0;i<s.length;i++)
 {
- o += "<option value='"+sv[i]+"'>"+s[i]+"</option> ";
+//  o += "<option value='"+sv[i]+"'>"+s[i]+"</option> ";
+
+	option = document.createElement( 'option' );
+    option.value = sv[i];
+    option.text = s[i];
+    select.add( option );
  
 }
 
@@ -22,7 +30,7 @@ for(var i = 0;i<s.length;i++)
  
 // }
 
-document.getElementById('carmodel').innerHTML = o;
+// document.getElementById('carmodel').innerHTML = o;
 }
 
 
